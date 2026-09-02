@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<!--
+  =========================================================================
+  ELEVO — GTM / GA4 PRACTICE WEBSITE (SINGLE FILE)
+  Everything — markup, styles, and script — lives in this one index.html.
+  Premium/corporate "ledger" design: ink navy, brass gold, deep teal.
+
+  WHERE TO EDIT
+  - GTM Container ID: search this file for "GTM-XXXXXXX" (2 spots: head
+    script + body noscript) and replace with your real container ID.
+    Quick test without editing code: open with ?gtm_id=GTM-XXXXXXX
+  - WhatsApp number: search for "919249500501" and replace with your
+    real number (used in wa.me links).
+  - Phone number: search for "+919249500501" (tel: links) and replace.
+
+  HOSTING FREE: GitHub Pages / Cloudflare Pages — upload this ONE file
+  (name it index.html) to a repo root, enable Pages, done.
+
+  EVENTS PUSHED TO dataLayer:
+  apply_now_click, whatsapp_click, phone_click, course_detail_click,
+  brochure_download, form_start, generate_lead, thank_you_page_view,
+  scroll_90, email_click
+  =========================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELEVO EDUCATION | Career-Focused Professional Training Institute</title>
+<meta name="description" content="Elevo Education provides practical, career-focused training in technology, design, accounting, digital marketing and professional skills. Demo site for GTM/GA4/Google Ads tracking practice.">
+<meta property="og:title" content="ELEVO EDUCATION | Career-Focused Professional Training Institute">
+<meta property="og:description" content="Practical, career-focused training in technology, design, accounting, digital marketing and professional skills.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet">
+
+<script>window.dataLayer = window.dataLayer || [];</script>
+<!-- ============ GOOGLE TAG MANAGER HEAD CODE GOES HERE (replace GTM-XXXXXXX) ============ -->
+<script>
+(function(w,d,s,l,i){
+  var params = new URLSearchParams(window.location.search);
+  var gtmId = params.get('gtm_id') || 'GTM-XXXXXXX';
+  if (gtmId === 'GTM-XXXXXXX') {
+    console.warn('[Elevo] No real GTM Container ID set. Replace GTM-XXXXXXX in <head>/<body>, or test with ?gtm_id=GTM-XXXXXXX');
+  }
+  w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+  var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+  j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+gtmId+dl;
+  f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');
+</script>
+<!-- ============ END GTM HEAD CODE ============ -->
+
+<style>
+/* =========================================================================
+   DESIGN SYSTEM — "The Ledger"
+   Ink navy header/footer, warm paper body, brass gold + deep teal accents.
+   Every credential/stat/course-meta line reads like a bound record entry.
+   ========================================================================= */
+:root{
+  --ink:#0F1830;
+  --ink-2:#1B2848;
+  --paper:#ffffff;
+  --mist:#EEF1F6;
+  --line:#DEE3EC;
+  --line-ink:#2A3760;
+  --gold:#FF7A1A;
+  --gold-deep:#D9600A;
+  --gold-soft:#FFE9D6;
+  --teal:#1B2848;
+  --teal-soft:#E7EAF3;
+  --text:#12141C;
+  --muted:#5B6472;
+  --display:'Poppins',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  --sans:'Poppins',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  --mono:'Poppins',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:var(--sans);background:var(--paper);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;}
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.01em;margin:0 0 18px;line-height:1.08;color:var(--ink);}
+h1{font-size:clamp(38px,6vw,72px);}
+h2{font-size:clamp(28px,3.6vw,42px);}
+h3{font-size:20px;font-weight:600;}
+p{color:var(--muted);margin:0 0 16px;font-size:16px;max-width:60ch;}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--gold);display:inline-block;}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+section{padding:96px 0;}
+section.alt{background:var(--mist);}
+.section-tight{padding:56px 0;}
+.divider{border:none;border-top:1px solid var(--line);margin:0;}
+
+/* ---------- Nav ---------- */
+header.site{position:sticky;top:0;z-index:100;background:var(--ink);border-bottom:1px solid var(--line-ink);}
+nav.wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;position:relative;}
+.wordmark{font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:-.01em;color:#fff;display:flex;align-items:center;gap:10px;}
+.wordmark .mark{width:32px;height:32px;border:1px solid var(--gold);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:13px;color:var(--gold);font-weight:600;}
+.wordmark span.dot{color:var(--gold);}
+.nav-links{display:flex;align-items:center;gap:34px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;}
+.nav-links a{color:#cfd6e6;opacity:.85;transition:opacity .15s ease,color .15s ease;padding-bottom:4px;border-bottom:1px solid transparent;cursor:pointer;background:none;border-left:none;border-right:none;border-top:none;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;}
+.nav-links a:hover{opacity:1;color:#fff;}
+.nav-cta{background:var(--gold);color:var(--ink);padding:11px 22px;border-radius:2px;font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;transition:background .15s ease;border:none;cursor:pointer;}
+.nav-cta:hover{background:#cfa156;}
+.nav-toggle{display:none;}
+@media (max-width:820px){
+  .nav-links{display:none;}
+  .nav-toggle{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
+  .nav-toggle span{width:22px;height:2px;background:#fff;display:block;}
+  nav.wrap.open .nav-links{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--ink);padding:24px 32px;gap:18px;border-top:1px solid var(--line-ink);border-bottom:1px solid var(--line-ink);}
+}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;font-weight:600;font-size:13px;letter-spacing:.03em;font-family:var(--sans);cursor:pointer;border:1px solid transparent;border-radius:2px;transition:background .15s ease, color .15s ease, border-color .15s ease, transform .1s ease;}
+.btn:active{transform:translateY(1px);}
+.btn-gold{background:var(--gold);color:var(--ink);}
+.btn-gold:hover{background:var(--gold-deep);color:#fff;}
+.btn-navy{background:var(--ink);color:#fff;}
+.btn-navy:hover{background:var(--ink-2);}
+.btn-outline{background:transparent;border-color:var(--ink);color:var(--ink);}
+.btn-outline:hover{background:var(--ink);color:#fff;}
+.btn-outline-w{background:transparent;border-color:rgba(255,255,255,.5);color:#fff;}
+.btn-outline-w:hover{background:#fff;color:var(--ink);}
+.btn-wa{background:var(--teal);color:#fff;}
+.btn-wa:hover{background:#164f42;}
+.btn-sm{padding:11px 18px;font-size:12px;}
+.btn-full{width:100%;justify-content:center;}
+
+/* ---------- Hero ---------- */
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden;border-bottom:1px solid var(--line-ink);}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 480px at 92% -10%, rgba(184,134,59,.16), transparent 60%),linear-gradient(160deg, var(--ink) 0%, var(--ink-2) 100%);}
+.hero-inner{position:relative;padding:96px 0 80px;width:100%;display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:end;}
+@media (max-width:900px){.hero-inner{grid-template-columns:1fr;}}
+.hero-index{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;font-weight:600;display:flex;align-items:center;gap:10px;}
+.hero-index::before{content:"";width:22px;height:1px;background:var(--gold);display:inline-block;}
+.hero h1{color:#fff;}
+.hero p.lede{color:#B7C0D6;font-size:18px;max-width:520px;margin-bottom:34px;}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;}
+.ledger{background:rgba(255,255,255,.03);border:1px solid var(--line-ink);border-top:2px solid var(--gold);padding:28px 30px;}
+.ledger .ledger-title{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8892A8;margin-bottom:18px;}
+.ledger-row{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-top:1px solid var(--line-ink);}
+.ledger-row:first-of-type{border-top:none;}
+.ledger-row .label{font-size:13.5px;color:#C6CDE0;}
+.ledger-row .val{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--gold);}
+
+/* ---------- Grid layouts ---------- */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);}
+@media (max-width:900px){.grid3{grid-template-columns:1fr;}}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+@media (max-width:860px){.grid2{grid-template-columns:1fr;}}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+@media (max-width:900px){.grid4{grid-template-columns:repeat(2,1fr);}}
+
+/* ---------- Cards ---------- */
+.card{background:#fff;padding:40px 34px;display:flex;flex-direction:column;gap:8px;border-top:2px solid transparent;transition:border-color .15s ease;}
+.card:hover{border-top-color:var(--gold);}
+.card .no{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--teal);font-weight:600;text-transform:uppercase;}
+.card h3{color:var(--ink);margin-bottom:2px;}
+.card p{font-size:14.5px;}
+.card .meta{font-family:var(--mono);font-size:12px;color:var(--ink);font-weight:500;letter-spacing:.01em;margin-bottom:8px;padding-top:10px;border-top:1px solid var(--line);}
+.card-cta-row{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;}
+
+.feature-card{background:#fff;padding:32px 28px;border:1px solid var(--line);}
+.feature-card .icon{width:38px;height:38px;border:1px solid var(--gold);border-radius:2px;display:flex;align-items:center;justify-content:center;color:var(--gold-deep);font-family:var(--mono);font-weight:600;margin-bottom:18px;}
+.feature-card h3{font-size:17px;margin-bottom:8px;}
+.feature-card p{font-size:14px;margin:0;}
+
+/* ---------- Stats ---------- */
+.stat{background:#fff;padding:30px 28px;}
+.stat b{display:block;font-family:var(--mono);font-size:34px;color:var(--gold-deep);font-weight:600;margin-bottom:6px;}
+.stat span{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-family:var(--mono);}
+
+/* ---------- Panels ---------- */
+.panel{background:#fff;border:1px solid var(--line);padding:40px;}
+.panel h3{color:var(--ink);}
+
+/* ---------- Syllabus / process ---------- */
+.module{border-top:1px solid var(--line);padding:26px 0;}
+.module:last-child{border-bottom:1px solid var(--line);}
+.module .m-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;}
+.module .m-head h3{color:var(--ink);margin:0;}
+.module .m-head span.tag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);font-weight:600;white-space:nowrap;}
+.module ul{margin:14px 0 0;padding-left:18px;color:var(--muted);font-size:14.5px;}
+.module li{margin-bottom:6px;}
+
+.process-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px;}
+@media (max-width:900px){.process-row{grid-template-columns:repeat(2,1fr);}}
+.process-step{background:#fff;padding:26px 22px;}
+.process-step .step-no{font-family:var(--mono);font-size:12px;color:var(--gold-deep);font-weight:600;margin-bottom:10px;}
+.process-step h3{font-size:15px;margin-bottom:6px;}
+.process-step p{font-size:13px;margin:0;}
+
+/* ---------- Trainers / testimonials ---------- */
+.trainer-card{background:#fff;border:1px solid var(--line);padding:0;overflow:hidden;}
+.trainer-photo{height:180px;background:linear-gradient(160deg,var(--ink),var(--ink-2));display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:var(--mono);font-size:34px;font-weight:600;}
+.trainer-body{padding:26px 24px;}
+.trainer-body h3{font-size:17px;margin-bottom:2px;}
+.trainer-role{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:10px;display:block;}
+.trainer-body p{font-size:13.5px;margin:0;}
+
+.testimonial{background:#fff;border:1px solid var(--line);border-top:2px solid var(--gold);padding:30px 28px;}
+.testimonial .stars{color:var(--gold);font-family:var(--mono);font-size:13px;margin-bottom:14px;letter-spacing:.1em;}
+.testimonial p{font-style:italic;font-size:15px;margin-bottom:18px;}
+.testimonial .who{font-family:var(--mono);font-size:12px;color:var(--ink);font-weight:600;}
+.testimonial .who span{color:var(--muted);font-weight:400;}
+
+/* ---------- FAQ ---------- */
+.faq-item{border-top:1px solid var(--line);}
+.faq-item:last-child{border-bottom:1px solid var(--line);}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer;font-family:var(--sans);font-size:16px;font-weight:600;color:var(--ink);}
+.faq-q .plus{font-family:var(--mono);color:var(--gold-deep);font-size:18px;transition:transform .2s ease;flex:none;}
+.faq-item.open .faq-q .plus{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;}
+.faq-item.open .faq-a{max-height:240px;}
+.faq-a p{padding:0 0 22px;font-size:14.5px;}
+
+/* ---------- Form ---------- */
+.form-box{background:#fff;border:1px solid var(--line);border-top:2px solid var(--gold);padding:44px;max-width:600px;}
+.field{margin-bottom:18px;}
+label{display:block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;color:var(--ink);}
+input,select,textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:2px;font-size:15px;font-family:var(--sans);background:#fff;color:var(--text);}
+textarea{resize:vertical;min-height:90px;}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);}
+.hint{font-size:12px;color:var(--muted);margin-top:-10px;margin-bottom:20px;}
+.note-box{background:var(--mist);border-left:2px solid var(--gold);padding:16px 18px;font-size:13px;color:var(--muted);margin-bottom:26px;}
+
+/* ---------- Contact info list ---------- */
+.info-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:20px;}
+.info-list li{border-top:1px solid var(--line);padding-top:16px;}
+.info-list .label{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);font-weight:600;display:block;margin-bottom:6px;}
+.info-list .value{font-size:17px;color:var(--ink);font-weight:600;}
+
+/* ---------- Thank-you state (in-page) ---------- */
+#thank-you-state{display:none;min-height:420px;align-items:center;justify-content:center;text-align:center;background:linear-gradient(160deg,var(--ink) 0%,var(--ink-2) 100%);color:#fff;padding:80px 32px;}
+#thank-you-state.show{display:flex;}
+.ty-check{width:72px;height:72px;border-radius:2px;border:1px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 26px;font-size:32px;font-family:var(--mono);}
+#thank-you-state h2{color:#fff;}
+#thank-you-state p{color:#B7C0D6;margin-left:auto;margin-right:auto;}
+
+/* ---------- Modal ---------- */
+.modal-overlay{position:fixed;inset:0;background:rgba(15,24,48,.72);display:none;align-items:flex-start;justify-content:center;padding:64px 20px;z-index:1000;overflow-y:auto;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:#fff;max-width:620px;width:100%;border-top:3px solid var(--gold);position:relative;}
+.modal-close{position:absolute;top:18px;right:18px;background:none;border:none;font-size:22px;line-height:1;cursor:pointer;color:var(--muted);font-family:var(--mono);}
+.modal-close:hover{color:var(--ink);}
+.modal-inner{padding:44px;}
+.modal-inner .eyebrow{margin-bottom:10px;}
+.modal-inner h2{font-size:28px;margin-bottom:14px;}
+.modal-meta-row{display:flex;gap:24px;margin-bottom:20px;flex-wrap:wrap;}
+.modal-meta-row div{font-family:var(--mono);font-size:12px;color:var(--muted);}
+.modal-meta-row b{color:var(--ink);display:block;font-size:15px;font-weight:600;margin-top:2px;}
+.modal-inner h4{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin:24px 0 10px;}
+.modal-inner ul{margin:0 0 8px;padding-left:18px;color:var(--muted);font-size:14.5px;}
+.modal-inner ul li{margin-bottom:6px;}
+.modal-actions{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;}
+
+/* ---------- Footer ---------- */
+footer.site{background:var(--ink);color:#8F97AC;padding:64px 0 32px;border-top:1px solid var(--line-ink);}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+@media (max-width:760px){.footer-grid{grid-template-columns:1fr;}}
+footer.site .wordmark{color:#fff;}
+footer.site h4{color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 16px;}
+footer.site ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:14px;}
+footer.site ul a{opacity:.85;cursor:pointer;}
+footer.site ul a:hover{opacity:1;color:var(--gold);}
+.footer-bottom{border-top:1px solid var(--line-ink);padding-top:24px;font-size:12px;font-family:var(--mono);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#6E7690;}
+.badge-note{display:inline-block;background:var(--gold-soft);color:var(--gold-deep);border:1px solid var(--gold);font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:7px 14px;border-radius:2px;margin-bottom:24px;}
+
+/* ---------- WhatsApp floating button ---------- */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:90;background:var(--teal);color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25);font-size:24px;transition:transform .15s ease;}
+.wa-float:hover{transform:scale(1.06);}
+
+/* ---------- Animations ---------- */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease, transform .5s ease;}
+.reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+<!-- ============ GOOGLE TAG MANAGER BODY NOSCRIPT CODE GOES HERE ============ -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ============================= HEADER / NAV ============================= -->
+<header class="site">
+  <nav class="wrap" id="site-nav">
+    <a class="wordmark" href="#home"><span class="mark">E</span>Elevo Education<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#courses">Courses</a>
+      <a href="#why">Why Elevo</a>
+      <a href="#trainers">Trainers</a>
+      <a href="#facilities">Facilities</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a class="nav-cta" href="#contact" data-track="apply_now_click" id="apply-now-nav">Enquire Now</a>
+  </nav>
+</header>
+
+<!-- ============================= HERO ============================= -->
+<section class="hero" id="home">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="hero-index">Practical Training</span>
+      <h1>Build Skills.<br>Build Your Future.</h1>
+      <p class="lede">
+        Elevo Education provides career-focused training built around real
+        projects, expert guidance and hands-on practice — so you graduate
+        job-ready, not just certificate-ready. This is a demo site built
+        for practicing Google Tag Manager and GA4 tracking; all content is fictional.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href="#courses">Explore Courses</a>
+        <a id="apply-now" class="btn btn-outline-w" href="#contact" data-track="apply_now_click">Enquire Now</a>
+      </div>
+    </div>
+    <div class="ledger" aria-label="Institute record summary">
+      <div class="ledger-title">Institute Record — FY 2026</div>
+      <div class="ledger-row"><span class="label">Students trained</span><span class="val">1,000+</span></div>
+      <div class="ledger-row"><span class="label">Professional courses</span><span class="val">20+</span></div>
+      <div class="ledger-row"><span class="label">Expert trainers</span><span class="val">10+</span></div>
+      <div class="ledger-row"><span class="label">Practical training</span><span class="val">95%</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= ABOUT ============================= -->
+<section id="about">
+  <div class="wrap grid2">
+    <div>
+      <span class="eyebrow">About Elevo Education</span>
+      <h2>Career-focused, practical, industry-oriented.</h2>
+      <p>Elevo Education focuses on practical, career-oriented education. We help students
+      develop industry-relevant digital and professional skills through real projects and
+      structured mentorship, not just lecture slides.</p>
+      <p>Every course is built around what employers actually ask for — so what you learn
+      in the classroom is what you're expected to do on the job.</p>
+    </div>
+    <div class="ledger" style="border-top-color:var(--teal);">
+      <div class="ledger-title">What every course includes</div>
+      <div class="ledger-row"><span class="label">Practical training</span><span class="val" style="color:var(--teal);">✓</span></div>
+      <div class="ledger-row"><span class="label">Expert guidance</span><span class="val" style="color:var(--teal);">✓</span></div>
+      <div class="ledger-row"><span class="label">Hands-on projects</span><span class="val" style="color:var(--teal);">✓</span></div>
+      <div class="ledger-row"><span class="label">Career-focused curriculum</span><span class="val" style="color:var(--teal);">✓</span></div>
+      <div class="ledger-row"><span class="label">Student support</span><span class="val" style="color:var(--teal);">✓</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================= COURSES ============================= -->
+<section class="alt" id="courses">
+  <div class="wrap">
+    <span class="eyebrow">Programs</span>
+    <h2>Choose your track</h2>
+    <p>Six practical courses, each built around real projects and career outcomes.</p>
+  </div>
+  <div class="grid3" style="margin-top:40px;">
+
+    <div class="card">
+      <div class="no">DESIGN</div>
+      <h3>Graphic Designing</h3>
+      <p>Visual design fundamentals, branding, and layout using industry-standard tools.</p>
+      <div class="meta">3 months · Beginner–Intermediate</div>
+      <div class="card-cta-row">
+        <button type="button" class="btn btn-outline btn-sm course-detail-btn" id="course-graphic-design"
+          data-course="Graphic Designing" data-track="course_detail_click">View Details</button>
+        <a class="btn btn-gold btn-sm" href="#contact" data-track="apply_now_click">Enquire Now</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="no">MARKETING</div>
+      <h3>Digital Marketing</h3>
+      <p>SEO, social media, paid ads and analytics — including live GTM/GA4 practice.</p>
+      <div class="meta">3 months · Beginner Friendly</div>
+      <div class="card-cta-row">
+        <button type="button" class="btn btn-outline btn-sm course-detail-btn" id="course-digital-marketing"
+          data-course="Digital Marketing" data-track="course_detail_click">View Details</button>
+        <a class="btn btn-gold btn-sm" href="#contact" data-track="apply_now_click">Enquire Now</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="no">FINANCE</div>
+      <h3>Accounting &amp; Finance</h3>
+      <p>Tally, GST, payroll and financial reporting fundamentals for job-ready skills.</p>
+      <div class="meta">3 months · Certificate</div>
+      <div class="card-cta-row">
+        <button type="button" class="btn btn-outline btn-sm course-detail-btn" id="course-accounting"
+          data-course="Accounting & Finance" data-track="course_detail_click">View Details</button>
+        <a class="btn btn-gold btn-sm" href="#contact" data-track="apply_now_click">Enquire Now</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="no">SOFTWARE</div>
+      <h3>Python Full Stack Development</h3>
+      <p>Frontend, backend, and databases — build and deploy real web applications.</p>
+      <div class="meta">4 months · Certificate</div>
+      <div class="card-cta-row">
+        <button type="button" class="btn btn-outline btn-sm course-detail-btn" id="course-python"
+          data-course="Python Full Stack Development" data-track="course_detail_click">View Details</button>
+        <a class="btn btn-gold btn-sm" href="#contact" data-track="apply_now_click">Enquire Now</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="no">MEDIA</div>
+      <h3>Video Editing &amp; Motion Graphics</h3>
+      <p>Editing, color grading and motion design for content, ads and social media.</p>
+      <div class="meta">2 months · Beginner Friendly</div>
+      <div class="card-cta-row">
+        <button type="button" class="btn btn-outline btn-sm course-detail-btn" id="course-video-editing"
+          data-course="Video Editing & Motion Graphics" data-track="course_detail_click">View Details</button>
+        <a class="btn btn-gold btn-sm" href="#contact" data-track="apply_now_click">Enquire Now</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="no">OFFICE</div>
+      <h3>Office Automation &amp; Computer Applications</h3>
+      <p>MS Office, spreadsheets and workplace computer skills for any career.</p>
+      <div class="meta">6 weeks · Beginner Friendly</div>
+      <div class="card-cta-row">
+        <button type="button" class="btn btn-outline btn-sm course-detail-btn" id="course-office-automation"
+          data-course="Office Automation & Computer Applications" data-track="course_detail_click">View Details</button>
+        <a class="btn btn-gold btn-sm" href="#contact" data-track="apply_now_click">Enquire Now</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================= WHY CHOOSE ELEVO ============================= -->
+<section id="why">
+  <div class="wrap">
+    <span class="eyebrow">Why Elevo Education</span>
+    <h2>Why choose Elevo Education?</h2>
+  </div>
+  <div class="wrap" style="margin-top:40px;">
+    <div class="grid4" style="background:var(--line);">
+      <div class="feature-card"><div class="icon">01</div><h3>Practical Learning</h3><p>Learn by building, not by watching slides.</p></div>
+      <div class="feature-card"><div class="icon">02</div><h3>Expert Trainers</h3><p>Instructors with real industry experience.</p></div>
+      <div class="feature-card"><div class="icon">03</div><h3>Industry-Relevant Courses</h3><p>Curriculum shaped by what employers ask for.</p></div>
+      <div class="feature-card"><div class="icon">04</div><h3>Hands-on Projects</h3><p>Every module ends in something you built.</p></div>
+      <div class="feature-card"><div class="icon">05</div><h3>Career Guidance</h3><p>Resume, portfolio and interview support.</p></div>
+      <div class="feature-card"><div class="icon">06</div><h3>Flexible Learning</h3><p>Weekday and weekend batches available.</p></div>
+      <div class="feature-card"><div class="icon">07</div><h3>Student Support</h3><p>Mentors available throughout your course.</p></div>
+      <div class="feature-card"><div class="icon">08</div><h3>Modern Environment</h3><p>Well-equipped labs and digital resources.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================= TRAINING APPROACH ============================= -->
+<section class="alt">
+  <div class="wrap">
+    <span class="eyebrow">Training Approach</span>
+    <h2>Learn → Practice → Build → Track → Grow</h2>
+    <p>Our methodology moves you from theory to a real, employable portfolio.</p>
+    <div class="process-row">
+      <div class="process-step"><div class="step-no">01</div><h3>Learn</h3><p>Understand the concept with real examples.</p></div>
+      <div class="process-step"><div class="step-no">02</div><h3>Practice</h3><p>Apply the skill in guided exercises.</p></div>
+      <div class="process-step"><div class="step-no">03</div><h3>Build</h3><p>Create real projects, not just samples.</p></div>
+      <div class="process-step"><div class="step-no">04</div><h3>Track</h3><p>Get expert feedback and iterate.</p></div>
+      <div class="process-step"><div class="step-no">05</div><h3>Grow</h3><p>Build your portfolio and prepare for interviews.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================= TRAINERS ============================= -->
+<section id="trainers">
+  <div class="wrap">
+    <span class="eyebrow">Meet the Team</span>
+    <h2>Trainers</h2>
+    <p>Sample/demo trainer profiles for this training site.</p>
+  </div>
+  <div class="wrap" style="margin-top:40px;">
+    <div class="grid3" style="background:var(--line);gap:1px;">
+      <div class="trainer-card">
+        <div class="trainer-photo">AR</div>
+        <div class="trainer-body">
+          <h3>Anjali Rao</h3>
+          <span class="trainer-role">Graphic Design · 8 yrs experience</span>
+          <p>Former agency art director; teaches brand identity and layout systems.</p>
+        </div>
+      </div>
+      <div class="trainer-card">
+        <div class="trainer-photo">SK</div>
+        <div class="trainer-body">
+          <h3>Sanjay Kumar</h3>
+          <span class="trainer-role">Full Stack Development · 6 yrs experience</span>
+          <p>Builds production web apps; focuses on real-world project structure.</p>
+        </div>
+      </div>
+      <div class="trainer-card">
+        <div class="trainer-photo">MP</div>
+        <div class="trainer-body">
+          <h3>Meera Pillai</h3>
+          <span class="trainer-role">Digital Marketing · 7 yrs experience</span>
+          <p>Runs paid-ad accounts for clients; teaches SEO, GTM and GA4 in practice.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================= FACILITIES ============================= -->
+<section class="alt" id="facilities">
+  <div class="wrap">
+    <span class="eyebrow">On Campus</span>
+    <h2>Facilities</h2>
+  </div>
+  <div class="wrap" style="margin-top:40px;">
+    <div class="grid4" style="background:var(--line);">
+      <div class="feature-card"><h3>Modern Computer Lab</h3><p>Updated systems for every batch.</p></div>
+      <div class="feature-card"><h3>High-Speed Internet</h3><p>Reliable connectivity for live tools.</p></div>
+      <div class="feature-card"><h3>Project-Based Learning</h3><p>Structured around deliverables.</p></div>
+      <div class="feature-card"><h3>Digital Resources</h3><p>Recorded sessions and reference material.</p></div>
+      <div class="feature-card"><h3>Comfortable Classrooms</h3><p>Small batch sizes, focused attention.</p></div>
+      <div class="feature-card"><h3>Career Guidance Desk</h3><p>Resume and interview prep on site.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================= STATISTICS ============================= -->
+<section class="section-tight">
+  <div class="wrap grid4" style="border:1px solid var(--line);">
+    <div class="stat"><b class="counter" data-target="1000">0</b><span>Students</span></div>
+    <div class="stat"><b class="counter" data-target="20">0</b><span>Courses</span></div>
+    <div class="stat"><b class="counter" data-target="10">0</b><span>Expert Trainers</span></div>
+    <div class="stat"><b class="counter" data-target="95">0</b><span>% Practical Training</span></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================= TESTIMONIALS ============================= -->
+<section id="testimonials">
+  <div class="wrap">
+    <span class="eyebrow">Student Voices</span>
+    <h2>What students say</h2>
+    <p style="font-size:13px;">(Demo/sample testimonials for this training site.)</p>
+  </div>
+  <div class="wrap grid3" style="margin-top:32px;background:none;gap:24px;">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"The projects felt like real client work, not classroom exercises. That's what got me hired."</p>
+      <div class="who">Divya Menon <span>— Graphic Designing</span></div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"Learning GTM and GA4 hands-on made the difference — I could show real tracking work in interviews."</p>
+      <div class="who">Arjun Nair <span>— Digital Marketing</span></div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★☆</div>
+      <p>"Small batches meant the trainer actually knew where I was stuck. Big difference from online-only courses."</p>
+      <div class="who">Fathima Rasheed <span>— Python Full Stack</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================= FAQ ============================= -->
+<section class="alt" id="faq">
+  <div class="wrap" style="max-width:820px;">
+    <span class="eyebrow">Questions</span>
+    <h2>Frequently asked questions</h2>
+
+    <div class="faq-list" style="margin-top:24px;">
+      <div class="faq-item">
+        <button class="faq-q" type="button">What courses does Elevo Education offer?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Six practical tracks: Graphic Designing, Digital Marketing, Accounting &amp; Finance, Python Full Stack Development, Video Editing &amp; Motion Graphics, and Office Automation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Are the courses practical?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes — every course centers on hands-on projects and real deliverables, with expert feedback throughout.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Who can join the courses?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Most courses are beginner-friendly. Some tracks list a suggested background — check each course's details.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Do you provide certificates?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes, a completion certificate is issued for every course after the final project is submitted.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Is there career guidance?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes — resume review, portfolio building and interview preparation are included.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">How can I enquire about a course?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Use the enquiry form below, WhatsApp us, or call directly — a counsellor will follow up.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Are weekend batches available?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes, most courses run both weekday and weekend batches.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ============================= CONTACT / ENQUIRY ============================= -->
+<section id="contact">
+  <div class="wrap grid2">
+
+    <div>
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Contact</h2>
+      <p>Talk to a counsellor about eligibility, fees and batch timings — or send an enquiry.</p>
+
+      <ul class="info-list">
+        <li>
+          <span class="label">WhatsApp</span>
+          <a id="whatsapp-btn" class="value" style="display:block;"
+             href="https://wa.me/919249500501?text=Hi%2C%20I%27d%20like%20course%20details"
+             target="_blank" rel="noopener" data-track="whatsapp_click">+91 92495 00501</a>
+        </li>
+        <li>
+          <span class="label">Phone</span>
+          <a id="call-btn" class="value" style="display:block;" href="tel:+919249500501" data-track="phone_click">+91 92495 00501</a>
+        </li>
+        <li>
+          <span class="label">Email</span>
+          <a id="email-btn" class="value" style="display:block;" href="mailto:hello@elevo.example" data-track="email_click">hello@elevo.example</a>
+        </li>
+        <li>
+          <span class="label">Office Hours</span>
+          <span class="value">Mon–Sat, 10 AM – 7 PM</span>
+        </li>
+      </ul>
+
+      <div class="cta-row" style="margin-top:32px;">
+        <a id="whatsapp-btn-2" class="btn btn-wa"
+           href="https://wa.me/919249500501?text=Hi%2C%20I%27m%20interested%20in%20Elevo%20courses"
+           target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp Us</a>
+        <button type="button" id="brochure-download" class="btn btn-outline" data-track="brochure_download">Download Brochure</button>
+      </div>
+    </div>
+
+    <div>
+      <div class="form-box" id="form-panel">
+        <div class="note-box">
+          Training demo only — please enter dummy/test information. No data is sent to
+          a real server; this form is for practicing GTM form tracking and the
+          <code>generate_lead</code> event.
+        </div>
+
+        <form id="enquiry-form" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Test User" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="e.g. 9000000000" required>
+          </div>
+          <div class="field">
+            <label for="email">Email <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted);">(optional)</span></label>
+            <input type="email" id="email" name="email" placeholder="e.g. test@example.com">
+          </div>
+          <div class="field">
+            <label for="course">Select Course</label>
+            <select id="course" name="course" required>
+              <option value="" disabled selected>Select a course</option>
+              <option value="Graphic Designing">Graphic Designing</option>
+              <option value="Digital Marketing">Digital Marketing</option>
+              <option value="Accounting & Finance">Accounting &amp; Finance</option>
+              <option value="Python Full Stack Development">Python Full Stack Development</option>
+              <option value="Video Editing & Motion Graphics">Video Editing &amp; Motion Graphics</option>
+              <option value="Office Automation & Computer Applications">Office Automation &amp; Computer Applications</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted);">(optional)</span></label>
+            <textarea id="message" name="message" placeholder="Anything you'd like us to know"></textarea>
+          </div>
+          <div class="hint">All fields except email and message are required (dummy validation for demo purposes).</div>
+          <button type="submit" id="submit-btn" class="btn btn-gold btn-full">Submit Enquiry</button>
+        </form>
+      </div>
+
+      <!-- ============ In-page Thank You state (Method: no separate thank-you.html) ============ -->
+      <div class="form-box" id="thank-you-state" style="display:none;">
+        <div class="ty-check">✓</div>
+        <h2 style="text-align:center;">Thank you!</h2>
+        <p style="text-align:center;">Your enquiry has been submitted. Our team will contact you shortly.</p>
+        <p style="text-align:center;font-size:13px;">(Demo only — no real enquiry was sent.)</p>
+        <button type="button" id="ty-back-btn" class="btn btn-outline btn-full" style="margin-top:10px;">Submit another enquiry</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="wordmark" style="margin-bottom:14px;"><span class="mark">E</span>Elevo Education<span class="dot">.</span></div>
+        <p style="color:#8F97AC;max-width:320px;">A fictional demo training institute created for Google Tag Manager / GA4 practice purposes only.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Courses</h4>
+        <ul>
+          <li><a href="#courses">Graphic Designing</a></li>
+          <li><a href="#courses">Digital Marketing</a></li>
+          <li><a href="#courses">Accounting &amp; Finance</a></li>
+          <li><a href="#courses">Python Full Stack</a></li>
+          <li><a href="#courses">Video Editing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ELEVO EDUCATION. All Rights Reserved.</span>
+      <span>Built for GTM + GA4 practice</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================= WhatsApp floating button ============================= -->
+<a href="https://wa.me/919249500501?text=Hi%2C%20I%27m%20interested%20in%20Elevo%20courses" target="_blank" rel="noopener"
+   class="wa-float" id="whatsapp-float" data-track="whatsapp_click" aria-label="WhatsApp Us">💬</a>
+
+<!-- ============================= COURSE DETAIL MODAL ============================= -->
+<div class="modal-overlay" id="course-modal">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+    <div class="modal-inner">
+      <span class="eyebrow" id="modal-eyebrow">Course</span>
+      <h2 id="modal-title">Course Name</h2>
+      <p id="modal-desc"></p>
+      <div class="modal-meta-row">
+        <div>Duration<b id="modal-duration"></b></div>
+        <div>Level<b id="modal-level"></b></div>
+      </div>
+      <h4>Modules covered</h4>
+      <ul id="modal-modules"></ul>
+      <h4>Career opportunities</h4>
+      <ul id="modal-careers"></ul>
+      <div class="modal-actions">
+        <a href="#contact" class="btn btn-gold" id="modal-enquire" data-track="apply_now_click">Enquire About This Course</a>
+        <button type="button" class="btn btn-outline" id="modal-close-2">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+
+  function pushEvent(eventName, extra) {
+    var payload = Object.assign({ event: eventName }, extra || {});
+    window.dataLayer.push(payload);
+    console.log('[dataLayer push]', payload);
+  }
+
+  /* ---------------- Mobile nav toggle ---------------- */
+  var navToggle = document.getElementById('nav-toggle');
+  var siteNav = document.getElementById('site-nav');
+  if (navToggle && siteNav) {
+    navToggle.addEventListener('click', function () {
+      var isOpen = siteNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    siteNav.querySelectorAll('.nav-links a').forEach(function (a) {
+      a.addEventListener('click', function () { siteNav.classList.remove('open'); });
+    });
+  }
+
+  /* ---------------- Generic [data-track] click tracking ---------------- */
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-track]');
+    if (!el) return;
+    var eventName = el.getAttribute('data-track');
+    var extra = {
+      element_id: el.id || null,
+      element_text: (el.textContent || '').trim(),
+      link_url: el.href || null
+    };
+    if (eventName === 'course_detail_click') {
+      extra.course_name = el.getAttribute('data-course') || null;
+    }
+    pushEvent(eventName, extra);
+  });
+
+  /* ---------------- Course data + modal ---------------- */
+  var courseData = {
+    "Graphic Designing": {
+      eyebrow: "Design · 3 months",
+      desc: "Visual design fundamentals, branding systems and layout for print and digital.",
+      duration: "3 months",
+      level: "Beginner–Intermediate",
+      modules: ["Design fundamentals & color theory", "Typography & layout systems", "Brand identity design", "Portfolio capstone project"],
+      careers: ["Junior Graphic Designer", "Brand Design Assistant", "Freelance Designer"]
+    },
+    "Digital Marketing": {
+      eyebrow: "Marketing · 3 months",
+      desc: "SEO, social media, paid advertising and analytics, including hands-on GTM/GA4 practice.",
+      duration: "3 months",
+      level: "Beginner Friendly",
+      modules: ["SEO fundamentals", "Social media & content strategy", "Paid ads (Search & Social)", "GTM, GA4 & conversion tracking"],
+      careers: ["Digital Marketing Executive", "SEO Associate", "Performance Marketing Assistant"]
+    },
+    "Accounting & Finance": {
+      eyebrow: "Finance · 3 months",
+      desc: "Tally, GST, payroll and financial reporting fundamentals for job-ready accounting skills.",
+      duration: "3 months",
+      level: "Beginner Friendly",
+      modules: ["Tally ERP & bookkeeping", "GST filing & payroll", "Financial statement analysis"],
+      careers: ["Accounts Assistant", "Payroll Executive", "Bookkeeping Associate"]
+    },
+    "Python Full Stack Development": {
+      eyebrow: "Software · 4 months",
+      desc: "Frontend, backend and databases — build and deploy real web applications end to end.",
+      duration: "4 months",
+      level: "Beginner–Intermediate",
+      modules: ["HTML, CSS & JavaScript", "Python & backend fundamentals", "Databases & APIs", "Capstone: deploy a full-stack app"],
+      careers: ["Junior Full Stack Developer", "Backend Developer Trainee", "Web Developer"]
+    },
+    "Video Editing & Motion Graphics": {
+      eyebrow: "Media · 2 months",
+      desc: "Editing, color grading and motion design for content, advertising and social media.",
+      duration: "2 months",
+      level: "Beginner Friendly",
+      modules: ["Editing fundamentals", "Color grading basics", "Motion graphics & titles", "Portfolio showreel"],
+      careers: ["Video Editor", "Motion Graphics Assistant", "Content Creator"]
+    },
+    "Office Automation & Computer Applications": {
+      eyebrow: "Office Skills · 6 weeks",
+      desc: "MS Office, spreadsheets and everyday workplace computer skills for any career path.",
+      duration: "6 weeks",
+      level: "Beginner Friendly",
+      modules: ["Word processing & documentation", "Spreadsheets & basic formulas", "Presentations & workplace tools"],
+      careers: ["Office Assistant", "Data Entry Associate", "Administrative Support"]
+    }
+  };
+
+  var modal = document.getElementById('course-modal');
+  document.querySelectorAll('.course-detail-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var name = btn.getAttribute('data-course');
+      var data = courseData[name];
+      if (!data) return;
+      document.getElementById('modal-eyebrow').textContent = data.eyebrow;
+      document.getElementById('modal-title').textContent = name;
+      document.getElementById('modal-desc').textContent = data.desc;
+      document.getElementById('modal-duration').textContent = data.duration;
+      document.getElementById('modal-level').textContent = data.level;
+      document.getElementById('modal-modules').innerHTML = data.modules.map(function (m) { return '<li>' + m + '</li>'; }).join('');
+      document.getElementById('modal-careers').innerHTML = data.careers.map(function (c) { return '<li>' + c + '</li>'; }).join('');
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  document.getElementById('modal-close-2').addEventListener('click', closeModal);
+  document.getElementById('modal-enquire').addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+
+  /* ---------------- FAQ accordion ---------------- */
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    item.querySelector('.faq-q').addEventListener('click', function () {
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function (i) { i.classList.remove('open'); });
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  /* ---------------- Animated stat counters ---------------- */
+  var counters = document.querySelectorAll('.counter');
+  var countersStarted = false;
+  function animateCounters() {
+    if (countersStarted) return;
+    countersStarted = true;
+    counters.forEach(function (el) {
+      var target = parseInt(el.getAttribute('data-target'), 10);
+      var current = 0;
+      var step = Math.max(1, Math.round(target / 60));
+      var timer = setInterval(function () {
+        current += step;
+        if (current >= target) { current = target; clearInterval(timer); }
+        el.textContent = current;
+      }, 20);
+    });
+  }
+  var statSection = document.querySelector('.counter');
+  if (statSection) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) { if (entry.isIntersecting) animateCounters(); });
+    }, { threshold: 0.4 });
+    obs.observe(statSection.closest('section'));
+  }
+
+  /* ---------------- Fade-in reveal on scroll ---------------- */
+  document.querySelectorAll('.card, .feature-card, .trainer-card, .testimonial, .process-step').forEach(function (el) {
+    el.classList.add('reveal');
+  });
+  var revealObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('in'); revealObs.unobserve(entry.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
+
+  /* ---------------- Brochure download (dummy file via JS blob) ---------------- */
+  var brochureBtn = document.getElementById('brochure-download');
+  if (brochureBtn) {
+    brochureBtn.addEventListener('click', function () {
+      var content = "ELEVO EDUCATION - Demo Brochure\n\n" +
+        "This is a dummy brochure file generated in-browser for GTM/GA4 download tracking practice.\n\n" +
+        "Courses:\n- Graphic Designing (3 months)\n- Digital Marketing (3 months)\n" +
+        "- Accounting & Finance (3 months)\n- Python Full Stack Development (4 months)\n" +
+        "- Video Editing & Motion Graphics (2 months)\n- Office Automation & Computer Applications (6 weeks)\n\n" +
+        "Contact: hello@elevo.example";
+      var blob = new Blob([content], { type: 'text/plain' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'elevo-education-brochure-demo.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    });
+  }
+
+  /* ---------------- Enquiry form: validate, generate_lead, in-page thank-you ---------------- */
+  var form = document.getElementById('enquiry-form');
+  var formPanel = document.getElementById('form-panel');
+  var tyState = document.getElementById('thank-you-state');
+
+  if (form) {
+    var formStarted = false;
+    form.addEventListener('focusin', function () {
+      if (!formStarted) {
+        formStarted = true;
+        pushEvent('form_start', { form_id: form.id });
+      }
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var name = document.getElementById('name').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var course = document.getElementById('course').value;
+
+      if (!name || !phone || !course) {
+        alert('Please fill Name, Phone and Course (dummy validation).');
+        return;
+      }
+
+      // Do NOT send personal info (name/phone/email) to GA4 — only course + form id.
+      pushEvent('generate_lead', { form_id: form.id, course_name: course });
+
+      // Swap to in-page Thank You state (no separate thank-you.html)
+      formPanel.style.display = 'none';
+      tyState.style.display = 'block';
+      tyState.classList.add('show');
+      tyState.style.display = 'flex';
+      history.replaceState(null, '', '#thank-you');
+      tyState.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      pushEvent('thank_you_page_view', { course_name: course });
+    });
+  }
+
+  var tyBackBtn = document.getElementById('ty-back-btn');
+  if (tyBackBtn) {
+    tyBackBtn.addEventListener('click', function () {
+      form.reset();
+      tyState.style.display = 'none';
+      tyState.classList.remove('show');
+      formPanel.style.display = 'block';
+      history.replaceState(null, '', '#contact');
+    });
+  }
+
+  /* ---------------- Scroll 90% tracking (fires once) ---------------- */
+  var scroll90Fired = false;
+  window.addEventListener('scroll', function () {
+    if (scroll90Fired) return;
+    var scrolled = window.scrollY + window.innerHeight;
+    var full = document.documentElement.scrollHeight;
+    if (scrolled / full >= 0.9) {
+      scroll90Fired = true;
+      pushEvent('scroll_90', { page_path: window.location.pathname });
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
